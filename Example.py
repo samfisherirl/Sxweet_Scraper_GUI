@@ -5,35 +5,31 @@ from dotenv import load_dotenv
 import os 
 
 load_dotenv()
-
 # leave as none if set in .env
 USERNAME = None
 PASSWORD = None
 
+
 def main():
-    os.environ['SCWEET_USERNAME'] = os.environ.get(
-        'SCWEET_USERNAME', '') or USERNAME
 
-    os.environ['SCWEET_PASSWORD'] = os.environ.get(
-        'SCWEET_PASSWORD', '') or PASSWORD
-
-    scweet_storage = scrape(words=['jstlk'], since="2024-01-01", until="2024-03-01", 
+    scweet_object = scrape(words=['jstlk'], since="2024-01-01", until="2024-03-01", 
                 from_account=None, interval=1, headless=False, display_type="Top", 
                 save_images=False, lang="en", filter_replies=False, proximity=False)
     
-    scweet_storage.login_sam()
+    scweet_object.login_sam()
     # ask_user_and_wait() this is for future cases where captcha may be an issue, allow the script to pause for user input. 
-    data = scweet_storage.continue_scrape()
+    data = scweet_object.start_scrape()
 
     dump_dataframe_to_csv(data, "jstlk.csv")
+    
     # scrape top tweets of with the hashtag #covid19, in proximity and without replies. the process is slower as the
     # interval is smaller (choose an interval that can divide the period of time betwee, start and max date)
-    scweet_storage = scrape(hashtag="bitcoin", since="2021-08-05", until="2021-08-08", from_account=None, interval=1,
+    scweet_object = scrape(hashtag="bitcoin", since="2021-08-05", until="2021-08-08", from_account=None, interval=1,
                 headless=True, display_type="Top", save_images=False,
                 resume=False, filter_replies=True, proximity=True)
 
-    scweet_storage.login_sam()
-    data = scweet_storage.continue_scrape(scweet_storage)
+    scweet_object.login_sam()
+    data = scweet_object.start_scrape(scweet_object)
     # Get the main information of a given list of users
     # These users belongs to my following. 
 
