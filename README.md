@@ -5,5 +5,6 @@ Scweet_with_auto_login, forked from https://github.com/Altimis/Scweet
 
 - Tested on python 310
 
-- ![image](https://github.com/samfisherirl/Sxweet_Scraper_GUI/assets/98753696/b9a89d60-874d-4ede-8e2f-07ee742aaf1a)
+![image](https://github.com/samfisherirl/Sxweet_Scraper_GUI/assets/98753696/3d90e989-cd72-4abb-a86d-aa5dc17bd107)
+
 
