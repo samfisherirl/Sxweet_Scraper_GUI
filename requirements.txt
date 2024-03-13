@@ -5,3 +5,4 @@ python-dotenv
 chromedriver-autoinstaller
 geckodriver-autoinstaller
 urllib3
+sv-ttk

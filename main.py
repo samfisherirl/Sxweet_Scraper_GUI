@@ -9,6 +9,7 @@ import json
 from reddit import Reddit
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
+import sv_ttk
 
 load_dotenv()
 # Assuming Scweet class is defined elsewhere and imported
@@ -181,4 +182,5 @@ if __name__ == "__main__":
     scrape_button = ttk.Button(frame, text="Start Scraping", command=init_vars)
     scrape_button.grid(column=0, row=row_counter, columnspan=2, sticky=(tk.W, tk.E))
     load_last_inputs()
+    sv_ttk.set_theme("dark")
     root.mainloop()
